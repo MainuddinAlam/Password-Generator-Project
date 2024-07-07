@@ -51,3 +51,11 @@ userQuery = """
     """
 # Get the desired choice of the user
 userChoice = int(input("Please select either 1, 2, 3 or 4: "))
+if userChoice == 1:
+    insertNewPassword(companyName. uName, eFile)
+elif userChoice == 2:
+    updatePassword(companyName. uName, eFile)
+elif userChoice == 3:
+    deletePassword(companyName. uName, eFile)
+else:
+    exit()
