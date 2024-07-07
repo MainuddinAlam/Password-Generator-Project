@@ -24,16 +24,16 @@ def generatePassword() -> str:
 
     return password
 
-# def insertNewPassword():
-#     ...
+def insertNewPassword():
+    ...
 
 
-# def deletePassword():
-#     ...
+def deletePassword():
+    ...
 
 
-# def updatePassword():
-#     ...
+def updatePassword():
+    ...
 
 
 # def checkPassword():
