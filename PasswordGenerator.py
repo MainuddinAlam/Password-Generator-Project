@@ -36,8 +36,8 @@ def updatePassword():
     ...
 
 
-# def checkPassword():
-#     ...
+def checkPassword():
+    ...
 
 # Get the general information from the user
 companyName, uName, eFile = promptGeneralInfo()
