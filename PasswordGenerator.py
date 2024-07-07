@@ -41,3 +41,13 @@ def checkPassword():
 
 # Get the general information from the user
 companyName, uName, eFile = promptGeneralInfo()
+userQuery = """
+    What would you like to do?
+    
+    1) Generate a new password for that company
+    2) Update the existing password
+    3) Delete the existing password 
+    4) Exit the program
+    """
+# Get the desired choice of the user
+userChoice = int(input("Please select either 1, 2, 3 or 4: "))
