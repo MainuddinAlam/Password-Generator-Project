@@ -3,7 +3,7 @@
 
 # Important modules for the program
 import string
-
+import random
 
 alphabets = list(string.ascii_letters)  
 numbers = list(string.digits)
@@ -42,8 +42,17 @@ def generatePassword() -> str:
     print(askUser)
     # Check what user has chosen
     getPrompt = int(input("Choose 1 or 2: "))
+    # Generate the random password
     if getPrompt == 1:
-        ...
+        # Add the letters
+        for i in range(6):
+            password.append(random.choice(alphabets))
+        # Add a number in a random place
+
+        # Add a special character in a random place
+        
+
+    # Get the user given password
     if getPrompt == 2:
         isValid = False
         # Let important details be known to the user
