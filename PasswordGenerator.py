@@ -17,9 +17,12 @@ def promptGeneralInfo() -> tuple:
         existingFileName = input("Give the name of your password storage file: ")
     return getCompanyName, getUserName, existingFileName
 
+"""
+Function to generate password
 
+@returns password The generated password
+"""
 def generatePassword() -> str:
-    passLen = 0
     password = ""
     askUser = """
     Would you like us to generate a password or make your own? 
