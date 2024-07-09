@@ -31,11 +31,16 @@ def generatePassword() -> str:
     print(askUser)
     # Check what user has chosen
     getPrompt = int(input("Choose 1 or 2: "))
-    while passLen < 8:
-        passLen = int(input("Choose the password length (Minimum has to be 8): "))
     if getPrompt == 1:
-    
+        ...
     if getPrompt == 2:
+        isValid = False
+        # Let important details be known to the user
+        print("Make sure your given password contains letters, numbers and special characters.\nPassword letter length must be atleast 8 characters.")
+        password = input("Enter your password: ")
+        # Check whether the given password is valid or not
+        while isValid == False:
+            isValid = checkPassword(password)
 
     return password
 
@@ -52,7 +57,7 @@ def updatePassword():
     ...
 
 
-def checkPassword() -> bool:
+def checkPassword(givenPassword) -> bool:
     ...
 
 # Get the general information from the user
