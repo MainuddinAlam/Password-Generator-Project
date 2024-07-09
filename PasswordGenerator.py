@@ -11,7 +11,7 @@ Function to get the company name and user name.
 def promptGeneralInfo() -> tuple:
     existingFileName = "passwordStoreV1"
     getCompanyName = input("Please input the name of the company: ")
-    getUserName = input("Please input your username:")
+    getUserName = input("Please input your username: ")
     doesFileExist = input("Do you have a secret file to store your passwords? Enter yes or no: ")
     if doesFileExist == "yes":
         existingFileName = input("Give the name of your password storage file: ")
@@ -19,12 +19,28 @@ def promptGeneralInfo() -> tuple:
 
 
 def generatePassword() -> str:
+    passLen = 0
     password = ""
-    #add algorithm
+    askUser = """
+    Would you like us to generate a password or make your own? 
+
+    1) Press 1 to generate
+    2) Press 2 to make your own
+    
+    """
+    print(askUser)
+    # Check what user has chosen
+    getPrompt = int(input("Choose 1 or 2: "))
+    while passLen < 8:
+        passLen = int(input("Choose the password length (Minimum has to be 8): "))
+    if getPrompt == 1:
+    
+    if getPrompt == 2:
 
     return password
 
 def insertNewPassword():
+
     ...
 
 
@@ -36,11 +52,11 @@ def updatePassword():
     ...
 
 
-def checkPassword():
+def checkPassword() -> bool:
     ...
 
 # Get the general information from the user
-companyName, uName, eFile = promptGeneralInfo()
+cName, uName, eFile = promptGeneralInfo()
 userQuery = """
     What would you like to do?
     
@@ -49,13 +65,14 @@ userQuery = """
     3) Delete the existing password 
     4) Exit the program
     """
+print(userQuery)
 # Get the desired choice of the user
 userChoice = int(input("Please select either 1, 2, 3 or 4: "))
 if userChoice == 1:
-    insertNewPassword(companyName. uName, eFile)
+    insertNewPassword(cName. uName, eFile)
 elif userChoice == 2:
-    updatePassword(companyName. uName, eFile)
+    updatePassword(cName. uName, eFile)
 elif userChoice == 3:
-    deletePassword(companyName. uName, eFile)
+    deletePassword(cName. uName, eFile)
 else:
     exit()
