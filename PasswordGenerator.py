@@ -47,11 +47,15 @@ def generatePassword() -> str:
         # Add the letters
         for i in range(6):
             password.append(random.choice(alphabets))
-        # Add a number in a random place
-
+        # Add a random number in a random place of the password string
+        ranNum = random.choice(numbers)
+        index = random.randint(0, len(password))
+        password = password[:index] + ranNum + password[index:]
         # Add a special character in a random place
+        ranSpChar = random.choice(specialChar)
+        index2 = random.randint(0, len(password))
+        password = password[:index2] + ranSpChar + password[index2:]
         
-
     # Get the user given password
     if getPrompt == 2:
         isValid = False
