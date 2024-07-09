@@ -1,6 +1,14 @@
 # My personal password generator program
 # Author: Mainuddin Alam Irteja
 
+# Important modules for the program
+import string
+
+
+alphabets = list(string.ascii_letters)  
+numbers = list(string.digits)
+specialChar = list(string.punctuation)
+
 """
 Function to get the company name and user name.
 
@@ -39,12 +47,11 @@ def generatePassword() -> str:
     if getPrompt == 2:
         isValid = False
         # Let important details be known to the user
-        print("Make sure your given password contains letters, numbers and special characters.\nPassword letter length must be atleast 8 characters.")
+        print("Make sure your given password contains letters, numbers and special characters.\nPassword letter length must be atleast 8 characters.\nMust be 6 letters.\nMust have 1 number.\nMust have 1 special character")
         password = input("Enter your password: ")
         # Check whether the given password is valid or not
         while isValid == False:
             isValid = checkPassword(password)
-
     return password
 
 def insertNewPassword():
