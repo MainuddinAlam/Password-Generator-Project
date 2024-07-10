@@ -92,16 +92,17 @@ def checkPassword(givenPassword: str) -> bool:
     letterCount = 0
     numCount = 0
     spCharCount = 0
+    # Track and check if all the conditions have met
     for i in givenPassword:
         if givenPassword[i].isalpha():
             letterCount += 1
         if givenPassword[i].isdigit():
             numCount += 1
-        
-
-
-
-
+        if givenPassword[i] in specialChar:
+            spCharCount += 1
+    if len(givenPassword) >= 8 and letterCount >= 6 and numCount >= 1 and spCharCount >= 1:
+        allConditionsMet = True
+    # Return the validity of the password
     return allConditionsMet
 
 
