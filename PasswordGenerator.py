@@ -59,11 +59,11 @@ def generatePassword() -> str:
     # Get the user given password
     if getPrompt == 2:
         isValid = False
-        # Let important details be known to the user
-        print("Make sure your given password contains letters, numbers and special characters.\nPassword letter length must be atleast 8 characters.\nMust be 6 letters.\nMust have 1 number.\nMust have 1 special character")
-        password = input("Enter your password: ")
-        # Check whether the given password is valid or not
         while isValid == False:
+            # Let important details be known to the user
+            print("Make sure your given password contains letters, numbers and special characters.\nPassword letter length must be atleast 8 characters.\nMust be 6 letters.\nMust have 1 number.\nMust have 1 special character")
+            password = input("Enter your password: ")
+            # Check whether the given password is valid or not
             isValid = checkPassword(password)
     return password
 
@@ -79,9 +79,32 @@ def deletePassword():
 def updatePassword():
     ...
 
+"""
+Function to check the password given by the user
 
-def checkPassword(givenPassword) -> bool:
-    ...
+Args:
+    givenPassword (str): The password given by the user
+@returns Whether the password is valid
+"""
+def checkPassword(givenPassword: str) -> bool:
+    allConditionsMet = False
+    # Creating local variables to track the count of the different symbols
+    letterCount = 0
+    numCount = 0
+    spCharCount = 0
+    for i in givenPassword:
+        if givenPassword[i].isalpha():
+            letterCount += 1
+        if givenPassword[i].isdigit():
+            numCount += 1
+        
+
+
+
+
+    return allConditionsMet
+
+
 
 # Get the general information from the user
 cName, uName, eFile = promptGeneralInfo()
