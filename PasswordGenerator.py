@@ -79,16 +79,27 @@ def generatePassword() -> str:
             isValid = checkPassword(password)
     return password
 
-def insertNewPassword():
+"""
+Function to add new password to the file.
+
+Args:
+    givenCompany (str): The company name given by the user
+    givenUserName (str): The user name given by the user
+    givenFileName (str): The file name given by the user
+"""
+def insertNewPassword(givenCompanyName : str, givenUserName : str, givenFileName : str) -> None:
 
     ...
 
+"""
+Function to update a password in the file.
 
-def deletePassword():
-    ...
-
-
-def updatePassword():
+Args:
+    givenCompany (str): The company name given by the user
+    givenUserName (str): The user name given by the user
+    givenFileName (str): The file name given by the user
+"""
+def updatePassword(givenCompanyName : str, givenUserName : str, givenFileName : str) -> None:
     ...
 
 """
@@ -98,7 +109,7 @@ Args:
     givenPassword (str): The password given by the user
 @returns Whether the password is valid
 """
-def checkPassword(givenPassword: str) -> bool:
+def checkPassword(givenPassword : str) -> bool:
     allConditionsMet = False
     # Creating local variables to track the count of the different symbols
     letterCount = 0
@@ -126,17 +137,14 @@ userQuery = """
     
     1) Generate a new password for that company
     2) Update the existing password
-    3) Delete the existing password 
-    4) Exit the program
+    3) Exit the program
     """
 print(userQuery)
 # Get the desired choice of the user
-userChoice = int(input("Please select either 1, 2, 3 or 4: "))
+userChoice = int(input("Please select either 1, 2, or 3: "))
 if userChoice == 1:
     insertNewPassword(cName. uName, eFile)
 elif userChoice == 2:
     updatePassword(cName. uName, eFile)
-elif userChoice == 3:
-    deletePassword(cName. uName, eFile)
 else:
     exit()
