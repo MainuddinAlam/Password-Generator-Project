@@ -1,13 +1,18 @@
+####################### PROJECT INFORMATION ##########################
 # My personal password generator program
 # Author: Mainuddin Alam Irteja
+######################################################################
 
 # Important modules for the program
 import string
 import random
 
+# Global variables
 alphabets = list(string.ascii_letters)  
 numbers = list(string.digits)
 specialChar = list(string.punctuation)
+
+###################### PROJECT FUNCTIONS ############################## 
 
 """
 Function to get the company name and user name.
@@ -17,12 +22,19 @@ Function to get the company name and user name.
 @returns existingFileName The name of the password storage file
 """
 def promptGeneralInfo() -> tuple:
+    # Get the general info
     existingFileName = "passwordStoreV1"
     getCompanyName = input("Please input the name of the company: ")
     getUserName = input("Please input your username: ")
     doesFileExist = input("Do you have a secret file to store your passwords? Enter yes or no: ")
+    # If file exists, get the file name
     if doesFileExist == "yes":
         existingFileName = input("Give the name of your password storage file: ")
+    # If file does not exist, just create the file
+    if doesFileExist == "no":
+        createFile = open(existingFileName, "w")
+        createFile.close()
+        
     return getCompanyName, getUserName, existingFileName
 
 """
@@ -105,7 +117,7 @@ def checkPassword(givenPassword: str) -> bool:
     # Return the validity of the password
     return allConditionsMet
 
-
+############################ MAIN CODE #####################################
 
 # Get the general information from the user
 cName, uName, eFile = promptGeneralInfo()
