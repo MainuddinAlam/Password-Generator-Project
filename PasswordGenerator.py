@@ -92,6 +92,7 @@ Args:
     givenCompany (str): The company name given by the user
     givenUserName (str): The user name given by the user
     givenFileName (str): The file name given by the user
+    coLine (int): The number of lines in the file
 """
 def insertNewPassword(givenCompanyName : str, givenUserName : str, givenFileName : str, coLine: int) -> None:
     # Generate a new password and add it to the list
@@ -110,7 +111,24 @@ Args:
     givenFileName (str): The file name given by the user
 """
 def updatePassword(givenCompanyName : str, givenUserName : str, givenFileName : str) -> None:
-    ...
+    # Get the line to update
+    lineNumber = -1
+    openFile = open(givenFileName, "r")
+    lines = openFile.readlines()
+    for i in range(len(lines)):
+        if givenCompanyName in lines[i] and givenUserName in lines[i]:
+            lineNumber = i
+    # Update the password
+    getNewPassword = generatePassword()
+    # Update the line
+    lines[lineNumber] = str(lineNumber) + "\t\t\t" + givenUserName + "\t\t\t" + givenCompanyName + "\t\t\t" + getNewPassword + "\n"
+    # Write the lines back to the file
+    writeFile = open(givenFileName, 'w')
+    writeFile.writelines(lines)
+    print("\nThe password has been updated and added to the list.")
+    # Close the files
+    openFile.close()
+    writeFile.close()
 
 """
 Function to check the password given by the user
@@ -155,6 +173,6 @@ userChoice = int(input("Please select either 1, 2, or 3: "))
 if userChoice == 1:
     insertNewPassword(cName, uName, eFile, cLines)
 elif userChoice == 2:
-    updatePassword(cName, uName, eFile, cLines)
+    updatePassword(cName, uName, eFile)
 else:
     exit()
